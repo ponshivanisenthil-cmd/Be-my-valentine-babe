@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 60px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+h1 {
+    color: #ff4d6d;
+}
+
+button {
+    padding: 14px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+#no {
+    background: #ddd;
+    position: absolute;
+}
+
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>Hey Nejesh💕</h1>
+<p>
+Roses are red 🌹<br>
+Violets are blue 💙<br>
+I made this page…<br>
+Just for you 😌
+</p>
+
+<h2>Will you be my Valentine? 💘</h2>
+
+<button id="yes" onclick="yesClicked()">YES 😍</button>
+<button id="no" onmouseover="moveNo()">No🙄</button>
+</div>
+
+<script>
+function moveNo() {
+    const no = document.getElementById("no");
+    no.style.left = Math.random() * (window.innerWidth - 120) + "px";
+    no.style.top = Math.random() * (window.innerHeight - 120) + "px";
+}
+
+function yesClicked() {
+    document.body.innerHTML = `
+    <div class="card">
+        <h1>YAYYY 🎉💖</h1>
+        <p>You just made my day 😌<br>You are my Valentine now and forever 💕</p>
+        <h2> love you kuttypoo💘</h2>
+    </div>`;
+}
+
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
